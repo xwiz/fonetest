@@ -1,0 +1,1 @@
+<div id="copyright text-right"> &copy; Copyright 2013 <a href="https://fonenode.com">Fonenode Demo</a> by Opata Chibueze</div>
