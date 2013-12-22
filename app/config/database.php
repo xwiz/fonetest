@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'fonetest',
 			'username'  => 'root',
-			'password'  => 'NewRevolution1',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
