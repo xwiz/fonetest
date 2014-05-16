@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => 'localhost:3307',
 			'database'  => 'fonetest',
 			'username'  => 'root',
-			'password'  => 'NewRevolution1',
+			'password'  => 'usbw',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
