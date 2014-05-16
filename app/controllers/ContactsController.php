@@ -118,9 +118,9 @@ class ContactsController extends BaseController
         $auth_uri = $client->getAuthorizationUri(array('scope' => array('http://www.google.com/m8/feeds/'),
                 'redirect_uri' => url('contacts/import')));
         $code = Input::get('code');
-        if ($code) {
+        if (!empty($code)) {
             $email = Auth::user()->email;
-            $url = 'http://www.google.com/m8/feeds/contacts/default/full?max-results=999';
+            $url = 'http://www.google.com/m8/feeds/contacts/default/full?max-results=50';
             $client->requestAccessToken($code);
             $xmlresponse = $client->request($url);
             if ((strlen(stristr($xmlresponse, 'Authorization required')) > 0) && (strlen(stristr
@@ -136,14 +136,18 @@ class ContactsController extends BaseController
             $xml->registerXPathNamespace('gd', 'http://schemas.google.com/g/2005');
             foreach ($xml->entry as $entry) {
                 foreach ($entry->xpath('gd:phoneNumber') as $e) {
+                    $num = '';
+                    if($e->attributes != null){
                     // Remove any non-digit character
-                    $num = (string )$e->atributes()->uri;
+                    $num = (string )$e->atributes->uri;
                     $num = preg_replace('|[^0-9]|', '', $num);
                     // Format number to international standard
                     if (preg_match('|^0|', $num))
                         $num = '234' . substr($to, 1);
-
-                    $contacts[] = array('user' => $entry->title, 'contact' => $num);
+                    }
+                    
+                    $contacts[] = array('user_id'=> Auth::user()->id,'contact_name' => $entry->title, 'contact_number' => $num);
+                    //$contacts[] = array('user' => $entry->title, 'contact' => $num);
                 }
             }
             $contacts_db = new Contacts();
