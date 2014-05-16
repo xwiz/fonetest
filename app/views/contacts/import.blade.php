@@ -22,7 +22,7 @@ message: 'Invite your friends to Fonenotes'
 
 
 <h1>Import Contacts</h1>
-<p>You can import your existing contacts from Google or upload CSV files. Simply authenticate with your Google account and we'll handle the rest for you.</p>
+<p>You can import your existing contacts from Google or Facebook. You can also upload CSV files. Simply authenticate with your Google account and we'll handle the rest for you.</p>
 <p class="well panel-info panel">Please note that csv files must be be in the format: [Name | Number] and may not contain any column titles.</p>
 <div class="span6" style="margin: 20px auto; float: none;">
 <a href="{{ $google }}" class="btn btn-danger btn-other" type="submit"><i class="icon-white fa-google-plus fa-fw"></i>Invite Google Contacts</a>
